@@ -1,20 +1,13 @@
-#==========================================
-#    Makefile: makefile for sl 5.1
-#	Copyright 1993, 1998, 2014
-#                 Toyoda Masashi
-#		  (mtoyoda@acm.org)
-#	Last Modified: 2014/03/31
-#==========================================
+UK_ROOT ?= $(PWD)/workdir/unikraft
+UK_BUILD ?= $(PWD)/workdir/build
+UK_APP ?= $(PWD)
+LIBS_BASE = $(PWD)/workdir/libs
+UK_LIBS ?=
 
-CC=gcc
-CFLAGS=-O -Wall
+.PHONY: all
 
-all: sl
+all:
+	@$(MAKE) -C $(UK_ROOT) L=$(UK_LIBS) A=$(UK_APP) O=$(UK_BUILD)
 
-sl: sl.c sl.h
-	$(CC) $(CFLAGS) -o sl sl.c -lncurses
-
-clean:
-	rm -f sl
-
-distclean: clean
+$(MAKECMDGOALS):
+	@$(MAKE) -C $(UK_ROOT) L=$(UK_LIBS) A=$(UK_APP) O=$(UK_BUILD) $(MAKECMDGOALS)

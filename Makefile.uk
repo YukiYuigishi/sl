@@ -1,0 +1,5 @@
+$(eval $(call addlib,appchello))
+
+APPCHELLO_SRCS-y += $(APPCHELLO_BASE)/src/sl.c
+APPCHELLO_SRCS-y += $(APPCHELLO_BASE)/src/mini_curses.c
+APPCHELLO_CINCLUDES-y += -I$(APPCHELLO_BASE)/include
