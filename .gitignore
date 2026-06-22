@@ -1,1 +1,5 @@
 workdir
+build.log
+.cache
+compile_commands.json
+workdir

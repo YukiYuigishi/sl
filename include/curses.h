@@ -1,6 +1,6 @@
 #pragma once
-#include <curses.h>
 #include <stdbool.h>
+#include <unistd.h>
 
 #define TRUE 1
 #define FALSE 0
@@ -26,3 +26,8 @@ int getch(void);
 int refresh(void);
 int mvcur(int, int, int, int);
 int endwin(void);
+
+/* nolibc only declares this when libposix-time is enabled. */
+#ifdef __Unikraft__
+int usleep(useconds_t usec);
+#endif
