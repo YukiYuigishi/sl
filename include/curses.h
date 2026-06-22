@@ -21,5 +21,8 @@ int curs_set(int);
 int nodelay(WINDOW *stdscr, bool bf);
 int leaveok(WINDOW *stdscr, bool bf);
 int scrollok(WINDOW *stdscr, bool bf);
+int mvaddch(int y, int x, int ch);
+int getch(void);
+int refresh(void);
 int mvcur(int, int, int, int);
 int endwin(void);
